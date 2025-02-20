@@ -1,0 +1,47 @@
+Zaimplementuj dowolny algorytm sprawdzający, czy podana para napisów
+równej długości zawiera wspólny znak. Zdefiniuj rozmiar danych tego algorytmu, oraz szczegółowo
+uzasadnij (jako komentarz w kodzie) pesymistyczny czas działania algorytmu w zależności od tego
+rozmiaru. Możesz przyjąć, że następujące operacje są elementarne (wymagają stałego czasu):
+ Operacje arytmetyczne na liczbach.
+ Operacje logiczne.
+ Przypisanie.
+ Odczytanie elementu napisu, listy lub słownika pod zadanym indeksem lub kluczem.
+ Stworzenie pustej listy, zbioru i słownika.
+ Sprawdzenie, czy element jest elementem zbioru lub kluczem w słowniku.
+ Sprawdzenie długości listy, napisu, etc.
+ Doklejenie elementu na koniec listy.
+ Dodanie lub usunięcie elementu zbioru.
+ Dodanie, usunięcie lub podmiana pary klucz-wartość w słowniku.
+Nie musisz uwzględniać kosztu czasowego kontroli sterowania (np. tworzenia obiektów range w pętli
+for). Nie zakładaj niczego o innych operacjach. Nie musisz używać wszystkich podanych operacji.
+
+def porownanie(lst1, lst2):
+    if len(lst1)==len(lst2): #stały czas
+        m1=max(lst1) # 0(n)
+        m2=min(lst2) # 0(n)
+        if m1>m2: #stały czas
+            return "Istnieje taki element."
+        else:
+            "Nie istnieje taki element."
+    else:
+        return "Listy nie są tej samej długości!"
+
+print(porownanie([2,5,3,7],[3,7,4,8]))
+#Stały czas równy 2n gdzie n to długość list.
+
+def porownanie1(lst1, lst2):
+    if len(lst1) == len(lst2):
+        n=len(lst1) #stały czas
+        for i in range (n): # 0(n)
+            for j in range (n): #0(n)
+                if lst1[i]>lst[j]:
+                    return "Istnieje taki element."
+            j=+1
+        i=+1
+        return "Nie istnieje taki element."
+    else:
+        return "Listy nie są tej samej długości!"
+
+print(porownanie([2,5,3,7],[3,7,4,8]))
+#Optymistyczny: w pierwszym porównaniu się uda czyli 3 operacje -> 0(1)
+#Pesymistyczny: w ostatnim, czyli 0(n^2)
